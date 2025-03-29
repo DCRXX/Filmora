@@ -417,10 +417,13 @@ body{
     height: 50px;
     align-items: center;
     justify-content: center;
-    background-color: green;
+    background-color: rgb(0, 128, 0);
     border-radius: 7px;
     cursor: pointer;
-    
+    transition: background-color 0.4s ease;
+}
+.ohor:hover {
+    background-color: rgb(0, 80, 0); /* Более светлый оттенок тёмно-синего */
 }
 .ohor p{
     font-size: 17px;
@@ -436,6 +439,10 @@ body{
     background-color: rgba(0, 0, 0, 0.5);
     border-radius: 7px;
     cursor: pointer;
+    transition: background-color 0.4s ease;
+}
+.podrob:hover{
+    background-color: rgba(0, 0, 0, 0.779)
 }
 .One{
     z-index: 5;
@@ -513,6 +520,18 @@ body{
     flex-direction: column;
     justify-content: center;
 }
+.Anim,
+.Mult_M,
+.Serial{
+    display: flex;
+    position: relative;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+}
+.A-name,
+.M-name,
+.S-name,
 .recom{
     color: white;
     position: relative;
@@ -523,18 +542,32 @@ body{
     margin-top: 50px;
     left: -515px;
 }
+.A-name img,
+.N-Top img,
+.M-name img,
+.S-name img,
 .recom img {
     margin-left: 10px;
     width: 10px;
     height: 12px;
+    transition: transform 0.3s ease;
 }
-
+.A-name:hover img,
+.N-Top:hover img,
+.M-name:hover img,
+.S-name:hover img,
+.recom:hover img{
+    transform: translateX(10px);
+}
+.SRA-A,
+.SRR-M,
+.SER-F,
 .FRR{
     width: 1250px;
-    height: 350px;
-    margin-top: 30px;
+    height: 400px;
     position: relative;
     display: flex;
+    align-items: center;
     justify-content: flex-start;
     flex-direction: row; 
     flex-wrap: nowrap;  
@@ -550,6 +583,7 @@ body{
         transparent 100%
     );
 }
+
 .FRR::-webkit-scrollbar {
     display: none;
 }
@@ -560,16 +594,21 @@ body{
     width: 200px;
     height: auto;
     left: 25px;
+    cursor: pointer;
     align-items: center;
     flex-direction:column;  
     margin-right: 50px;
+    transition: transform 0.3s ease;
+}
+.Film-recom:hover{
+    transform: scale(1.1);
 }
 .F{
     display: flex;
     position: relative;
     width: 200px;
     height: auto;
-    left: 0px;
+
     flex-direction: row; 
 }
 
@@ -612,15 +651,32 @@ body{
     position: relative;
     display: flex;
 }
+.ostal-Q{
+    margin-right: 10px;
+    top: 19px;
+    height: 12px;
+    position: relative;
+    display: flex;
+}
+.Rating-Q-recom{
+    position: relative;
+    display: flex;
+    margin-left: 10px;
+    top: 15px;
+    width: 30px !important;
+    height: 20px !important;
+    align-items: center;
+    justify-content: center ;
+    background-color: green;
+    border-radius: 6px;
+}
 .black-fon{
     background-color: black;
     width: 200px;
     height: 45px;
     position: relative;
     display: flex;
-    
-    gap: 15px;
-    justify-content: center;
+    gap: 10px;
     border-radius: 15px;
 }
 .subscription_type{
@@ -658,10 +714,11 @@ body{
 }
 .Top-F{
     width: 1400px;
-    height: 380px;
+    height: 420px;
     margin-top: 30px;
     position: relative;
     display: flex;
+    align-items: center;
     justify-content: flex-start;
     flex-direction: row; 
     flex-wrap: nowrap;  
@@ -691,6 +748,7 @@ body{
     background-clip: text; /* Стандартное свойство */
     color: transparent; /* Делаем текст прозрачным, чтобы виден был градиент */
     display: inline-block; /* Убедимся, что градиент применяется корректно */
+    transition: transform 0.3s ease;
     
 }
 .Number p{
@@ -708,11 +766,146 @@ body{
 }
 .T-F{
     position:relative;
-    display:flex;       
+    display:flex;  
     z-index: 2;
     width: 255px;
     height: auto;
     align-items: center;
     flex-direction:column;  
     margin-right: 70px;
+}
+.T-F img {
+    transition: transform 0.3s ease;
+}
+.podbor{
+    display: flex;
+    position: relative;
+    width: 100%;
+    height: 300px;
+    background-color: rgba(0, 0, 0, 0.41);
+    justify-content: center;
+}
+.POD1{
+    width: 318px;
+    height: 300px;
+    display: flex;
+    position: relative;
+    justify-content: center;
+    flex-direction: column;
+    color: white;
+    justify-content: center;
+    gap: 30px;
+}
+.POD1 p{
+    margin-left: 50px;
+    transition: color 0.3s ease;
+    cursor: pointer;
+}
+
+.POD2{
+    display: flex;
+    position: relative;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 900px;
+    height: 300px;
+}
+.POD2 img{
+    width: 200px;
+    height: 50px;
+}
+.POD3{
+    display: flex;
+    position: relative;
+    width: 318px;
+    height: 300px;
+    align-items: center;
+    justify-content: center;
+}
+.POD1 p:hover{
+    color: rgba(204, 204, 204, 0.5);
+}
+.App{
+    display: flex;
+    position: relative;
+    margin-top: 50px;
+    width: auto;
+    gap: 30px;
+}
+.G-Play,
+.APP-G,
+.APP-S,
+.RU{
+    display: flex;
+    position: relative;
+    background-color: rgba(38, 38, 38, 0.537);
+    justify-content: center;
+    align-items: center;
+    height: 50px;
+    width: 200px;
+    gap: 15px;
+    border-radius: 8px;
+    transition: background-color 0.4s ease;
+}
+.G-Play:hover,
+.APP-G:hover,
+.APP-S:hover,
+.RU:hover{
+    background-color: rgba(80, 80, 80, 0.686);
+}
+.G-Play img,
+.APP-G img,
+.APP-S img,
+.RU img{
+    width: auto;
+    height: 40px;
+}
+.KOM{
+    margin-top: 50px;
+    display: flex;
+    position: relative;
+    color: white;
+}
+.KON{
+    display:flex ;
+    position: relative;
+    width: auto;
+    height: auto;
+    flex-direction: column;
+    gap: 20px;
+    color: white;
+}
+.Y,
+.W,
+.T{
+    color: white;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    justify-content: flex-end;
+}
+.YT,
+.WK,
+.TG{
+    display: flex;
+    position: relative;
+    width: 40px;
+    height: 40px;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    background-color: rgba(38, 38, 38, 0.537);
+    transition: background-color 0.4s ease;
+}
+.YT:hover,
+.WK:hover,
+.TG:hover{
+    background-color: rgba(80, 80, 80, 0.686);
+}
+.YT img,
+.WK img,
+.TG img {
+    width: 30px;
+    height: 30px;
 }

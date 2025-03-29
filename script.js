@@ -1,49 +1,4 @@
-const swiper = new Swiper('.swiper-container', {
-    loop: true,
-    speed: 1000,
-    autoplay: {
-        delay: 3000,
-        disableOnInteraction: false,
-    },
-    centeredSlides: true,
-    slidesPerView: 'auto',
-    spaceBetween: 40,
-    mousewheel: true,
-    navigation: {
-        nextEl: '.swiper-button-next',
-        prevEl: '.swiper-button-prev',
-    },
-    breakpoints: {
-        320: {
-            spaceBetween: 20,
-            slidesPerView: 'auto',
-        },
-        768: {
-            spaceBetween: 30,
-            slidesPerView: 'auto',
-        },
-        1024: {
-            spaceBetween: 40,
-            slidesPerView: 'auto',
-        }
-    },
-    on: {
-        init: function() {
-            this.slides.forEach((slide, index) => {
-                slide.style.transform = `scale(${index === this.activeIndex ? 1 : 0.85})`;
-                slide.style.opacity = index === this.activeIndex ? 1 : 0.7;
-            });
-        },
-        slideChange: function() {
-            this.slides.forEach((slide, index) => {
-                const scale = index === this.activeIndex ? 1 : 0.85;
-                const opacity = index === this.activeIndex ? 1 : 0.7;
-                slide.style.transform = `scale(${scale})`;
-                slide.style.opacity = opacity;
-            });
-        }
-    }
-});
+
 
 // Остальной код с частицами остается без изменений
 const canvas = document.getElementById('canvas');
@@ -117,3 +72,37 @@ window.addEventListener('resize', () => {
 
 initParticles();
 animateParticles();
+
+
+// Находим все элементы .T-F
+const tfElements = document.querySelectorAll('.T-F');
+
+// Для каждого .T-F добавляем обработчики событий
+tfElements.forEach(tf => {
+    // Находим соответствующий .Number (предыдущий элемент)
+    const number = tf.previousElementSibling;
+
+    // При наведении на .T-F
+    tf.addEventListener('mouseover', () => {
+        // Увеличиваем изображение
+        const img = tf.querySelector('img');
+        img.style.transform = 'scale(1.1)'; // Увеличиваем на 10%
+
+        // Сдвигаем .Number влево
+        if (number && number.classList.contains('Number')) {
+            number.style.transform = 'translateX(-10px)'; // Сдвиг влево на 10px
+        }
+    });
+
+    // При уходе курсора с .T-F
+    tf.addEventListener('mouseout', () => {
+        // Возвращаем изображение в исходное состояние
+        const img = tf.querySelector('img');
+        img.style.transform = 'scale(1)'; // Возвращаем масштаб
+
+        // Возвращаем .Number в исходное состояние
+        if (number && number.classList.contains('Number')) {
+            number.style.transform = 'translateX(0)'; // Возвращаем в начальную позицию
+        }
+    });
+});
